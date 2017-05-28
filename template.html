@@ -1,0 +1,1626 @@
+<!doctype html>
+<!--_____  ___  ________       ___  ________  ___  ___  ________      
+|\   ____\|\  \|\   __  \     |\  \|\   __  \|\  \|\  \|\   ___  \    
+\ \  \___|\ \  \ \  \|\  \    \ \  \ \  \|\  \ \  \\\  \ \  \\ \  \   
+ \ \_____  \ \  \ \   _  _\ __ \ \  \ \  \\\  \ \   __  \ \  \\ \  \  
+  \|____|\  \ \  \ \  \\  \|\  \\_\  \ \  \\\  \ \  \ \  \ \  \\ \  \ 
+    ____\_\  \ \__\ \__\\ _\ \________\ \_______\ \__\ \__\ \__\\ \__\
+   |\_________\|__|\|__|\|__\|________|\|_______|\|__|\|__|\|__| \|__|
+   \|_________| http://sirjohndigweed.tumblr.com/ -->
+
+<html>
+    <head> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="shortcut icon" href="{Favicon}">
+        {block:Description}
+        <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+
+        <meta name="select:Bootstrap theme" content="Default" title="Bootstrap Default">
+        <meta name="select:Bootstrap theme" content="Darkly" title="Bootswatch Darkly">
+        <meta name="select:Bootstrap theme" content="Cyborg" title="Bootswatch Cyborg">
+        <meta name="select:Bootstrap theme" content="Paper" title="Bootswatch Paper">
+        <meta name="select:Bootstrap theme" content="Superhero" title="Bootswatch Superhero">
+        <meta name="select:Bootstrap theme" content="Yeti" title="Bootswatch Yeti">
+        
+        <meta name="if:Bootstrap theme selector" content="0">
+		<meta name="if:One column page" content="1">
+		<meta name="if:Fixed top navbar" content="1">
+		<meta name="if:RelatedPosts" content="1">
+
+        <meta name="if:Alert enabled" content="0">
+        <meta name="if:Disqus comments counter" content="0">
+        <meta name="if:Copyleft Footer" content="0">
+        
+        <meta name="text:Alert title" content="Warning!">
+        <meta name="text:Alert body" content="Body alert...">
+        <meta name="text:Alert cookie name" content="AlertDiv">
+        <meta name="text:Alert cookie days" content="5">
+        
+       
+
+        
+        <meta name="if:Enable Jump Pagination" content="1">
+        <meta name="if:Menu on right" content="0">
+        <meta name="if:Title in Navbar" content="0">
+        <meta name="if:Icon in Navbar" content="0">
+        <meta name="text:Icon in Navbar URL" content="http://static.tumblr.com/bffkbni/kXGno5pcj/leopard-power-off-button_1_.png">
+        <!--<meta name="text:Icon in Navbar URL" content="http://static.tumblr.com/bffkbni/N5Pnod9qv/power_1_.png"> -->
+        
+        
+        <meta name="text:City text line" content="Buenos Aires - Argentina">
+
+        <meta name="text:Etiquetas" content="Name[tag],Name 2[tag-2]">
+        
+        
+        <meta name="text:Twitter Username" content="@username">
+        <meta name="text:Google Plus URL" content="">
+        <meta name="text:Facebook URL" content="">
+        <meta name="text:Disqus Username" content="">
+        		
+        <meta name="text:Google Analytics Web Property ID" content="">
+        
+        <meta name="text:Facebook Open Graph Image for Homepage" content="">
+        <meta name="text:Twitter Cards Image for Homepage" content="">       
+        
+
+        <!-- Your title & description Meta tags for the index pages of your tumblr, including Tumblr theme tags for search and tag pages-->
+        {block:IndexPage}
+        <title>{Title}{block:TagPage} - &quot;{PlaintextTag}&quot;{/block:TagPage}{block:SearchPage} - {lang:Search results for SearchQuery}{/block:SearchPage}</title>
+        <meta name="Description" content="{MetaDescription}" />
+        {/block:IndexPage}
+
+        {block:PermalinkPage}
+        <!-- Your title & description Meta tags for the permalink (individual post) pages of your tumblr, The {PostSummary} tag is effective because it will still insert an indvividual post title if available or if your post type doesn't have a title, it will pull copy from your post's caption or description-->
+        <title>{Title}{block:PostSummary} - {PlaintextPostSummary}{/block:PostSummary}</title>
+        <meta name="Description" content="{MetaDescription}" />
+        {/block:PermalinkPage}
+        
+        {block:PermalinkPage}
+        {block:Posts}
+        {block:Date}
+        <!-- Canonical h5bp.com/docs/head-Tips/#urls -->
+        <link rel="canonical" href="{Permalink}">
+        <!-- Shortlink h5bp.com/docs/head-Tips/#urls -->
+        <link rel="shortlink" href="{ShortURL}">
+        {/block:Date}
+        {/block:Posts}
+        {/block:PermalinkPage}
+
+        {block:IndexPage}
+        <!-- BEGIN FB TAGS & TW CARD -->
+        <!-- ONLY FOR INDEX PAGE -->        
+        
+        <meta property="og:title" content="{Title}"/>
+        <meta property="og:url" content="{blogURL}"/>
+        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="{MetaDescription}"/>
+        
+        {block:IfFacebookOpenGraphImageforHomepage}
+        <meta property="og:image" content="{text:Facebook Open Graph Image for Homepage}"/>
+        {/block:IfFacebookOpenGraphImageforHomepage}
+        
+        {block:IfNotFacebookOpenGraphImageforHomepage}
+        <meta property="og:image" content="{PortraitURL-128}}"/>
+        {/block:IfNotFacebookOpenGraphImageforHomepage}
+        
+        
+        <meta name="twitter:url" content="{blogURL}"/>
+        {block:IfTwitterUsername}
+        <meta name="twitter:site" content="{text:Twitter Username}">
+        {/block:IfTwitterUsername}
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="{Title}"/>
+        <meta name="twitter:description" content="{MetaDescription}"/>
+        {block:IfTwitterCardsImageforHomepage}
+        <meta name="twitter:image" content="{text:Twitter Cards Image for Homepage}"/>
+        {/block:IfTwitterCardsImageforHomepage}
+        
+        {block:IfNotTwitterCardsImageforHomepage}
+        <meta name="twitter:image" content="{PortraitURL-128}"/>
+        {/block:IfNotTwitterCardsImageforHomepage}
+        <!-- END FB TAGS & TW CARD -->
+        
+        {/block:IndexPage}        
+
+
+
+        <script src="http://static.tumblr.com/bffkbni/Fsunn2d6o/jquery.min_1_.js"></script>
+        <script>
+
+        /* Funciones */
+        /* http://stackoverflow.com/a/20770311 */
+        function setCookie(c_name, value, exdays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+            document.cookie = c_name + "=" + c_value + ';path=/'
+        }
+        
+        /* http://stackoverflow.com/a/20770311 */
+        function getCookie(c_name) {
+            var i, x, y, ARRcookies = document.cookie.split(";");
+            for (i = 0; i < ARRcookies.length; i++) {
+                x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+                y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+                x = x.replace(/^\s+|\s+$/g, "");
+                if (x == c_name) {
+                    return unescape(y);
+                }
+            }
+        }
+        
+        /* http://stackoverflow.com/a/17776346 */
+        function isAnyValueIn(target, values) {
+            for (var i = 0; i < values.length; i++) {
+                if (target.indexOf(values[i]) > -1) {
+                    return true;
+                }
+            }
+            return false;
+        }  
+         
+
+        /* http://jsfiddle.net/stichoza/EYxTJ/ */        
+        function fbShare(url, title, descr, image, winWidth, winHeight) {
+            var winTop = (screen.height / 2) - (winHeight / 2);
+            var winLeft = (screen.width / 2) - (winWidth / 2);
+            window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+        }
+        
+        function twShare(url, title, descr,username,  winWidth, winHeight) {
+            var winTop2 = (screen.height / 2) - (winHeight / 2);
+            var winLeft2 = (screen.width / 2) - (winWidth / 2);
+            window.open('https://twitter.com/intent/tweet?text=' + title + ' ' + descr + ' ' + url + username.toLowerCase(), '', 'top=' + winTop2 + ',left=' + winLeft2 + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+                
+        }
+        
+        function gpShare(url, winWidth, winHeight) {
+            var winTop2 = (screen.height / 2) - (winHeight / 2);
+            var winLeft2 = (screen.width / 2) - (winWidth / 2);
+            window.open('https://plus.google.com/share?url=' + url, '','top=' + winTop2 + ',left=' + winLeft2 + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+                
+        }   
+
+            var cookie_aspecto = '{select:Bootstrap theme}';
+            
+            {block:IfBootstrapthemeselector}
+            /* Leo la cookie, a ver que onda....*/
+            var cookie_aspecto = getCookie('AspectoTema');
+            /* Si no hay cookie o si está el
+               selector desactivado, pongo el tema 
+               que eligio aca el amigo del blog (usted)*/
+            if(!cookie_aspecto){
+                var cookie_aspecto = '{select:Bootstrap theme}';
+            }
+            {/block:IfBootstrapthemeselector}
+
+            
+            switch (cookie_aspecto) { 
+            case 'Default': 
+            /* or...https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css*/
+            document.write('<link href="http://static.tumblr.com/bffkbni/HE3nnw6iz/bootstrap.3.3.4.min.css" rel="stylesheet">' + 
+            '<style>.custom-navbar .navbar-toggle \{margin-top:10px;\}'+
+            '.card\{border:solid #ddd 1px;\}'+
+            'footer a:hover, nav a:hover,.share a:hover \{color:#000;text-decoration: none;\}'+
+            '.badge \{color: #f5f5f5;background-color: #333;\}'+
+            '#posts \{  {block:IfnotFixedtopnavbar}margin-top:15px;{/block:IfnotFixedtopnavbar}{block:IfFixedtopnavbar}margin-top:70px;{/block:IfFixedtopnavbar} \}'+
+            '</style>');
+            break 
+            
+            case 'Cyborg': 
+            /* https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cyborg/bootstrap.min.css*/
+            document.write('<link href="http://static.tumblr.com/bffkbni/Y9nnnw5ly/cyborg.bootstrap.3.3.4.min.css" rel="stylesheet">' + 
+            '<style>.custom-navbar .navbar-toggle \{margin-top:10px;\}'+
+            '.card\{border:solid #282828 1px;\}'+
+            'footer a:hover, nav a:hover,.share a:hover \{color:#fff;text-decoration: none;\}'+
+            '.badge \{color: #3c3c3c;background-color: #888888;\}'+
+                        '#posts \{  {block:IfnotFixedtopnavbar}margin-top:15px;{/block:IfnotFixedtopnavbar}{block:IfFixedtopnavbar}margin-top:70px;{/block:IfFixedtopnavbar} \}'+
+            '</style>');
+            break
+            
+            case 'Paper': 
+            /* or...https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css */
+            document.write('<link href="http://static.tumblr.com/bffkbni/GtGnoevm6/bootstrap.min.paper.3.3.4.css" rel="stylesheet">' + 
+            '<style>.custom-navbar .navbar-toggle \{margin-top:18px;\}'+
+            '.card\{border:solid #dddddd 1px;\}'+
+            'footer a:hover, nav a:hover,.share a:hover \{color:#000;text-decoration: none;\}'+
+            '.badge \{color: #f5f5f5;background-color: #333333;\}'+
+                        '#posts \{  {block:IfnotFixedtopnavbar}margin-top:15px;{/block:IfnotFixedtopnavbar}{block:IfFixedtopnavbar}margin-top:75px;{/block:IfFixedtopnavbar} \}'+
+            '</style>');
+            break 
+                        
+            case 'Superhero': 
+            /* or....https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/superhero/bootstrap.min.css*/
+            document.write('<link href="http://static.tumblr.com/bffkbni/sSlnoevmr/bootstrap.min.superhero.3.3.4.css" rel="stylesheet">' + 
+            '<style>.custom-navbar .navbar-toggle \{margin-top:8px;\}'+
+            '.card\{border:solid transparent 1px;\}'+
+            'footer a:hover, nav a:hover,.share a:hover \{color:#fff;text-decoration: none;\}'+
+            '.badge \{color: #f5f5f5;background-color: #333333;\}'+
+                        '#posts \{  {block:IfnotFixedtopnavbar}margin-top:15px;{/block:IfnotFixedtopnavbar}{block:IfFixedtopnavbar}margin-top:55px;{/block:IfFixedtopnavbar} \}'+
+            '.navbar-brand \{ font-size: 25px; \}'+
+            '</style>');
+            break 
+                                    
+            case 'Yeti': 
+            /* or....https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css*/
+            document.write('<link href="http://static.tumblr.com/bffkbni/XZinoevng/bootstrap.min.yeti.3.3.4.css" rel="stylesheet">' + 
+            '<style>.custom-navbar .navbar-toggle \{margin-top:10px;color:#fff\}'+
+            '.card\{border:solid #dddddd 1px;\}'+
+            'footer a:hover, nav a:hover,.share a:hover \{color:#000;text-decoration: none;\}'+
+            '.badge \{color: #f5f5f5;background-color: #333333;\}'+
+                        '#posts \{  {block:IfnotFixedtopnavbar}margin-top:15px;{/block:IfnotFixedtopnavbar}{block:IfFixedtopnavbar}margin-top:70px;{/block:IfFixedtopnavbar} \}'+
+            '</style>');
+            break 
+                                                
+            case 'Darkly': 
+            /* or...https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/darkly/bootstrap.min.css*/
+            document.write('<link href="http://static.tumblr.com/bffkbni/MrAnoevj2/bootstrap.min.darkly.3.3.4.css" rel="stylesheet">' + 
+            '.navbar-brand \{ font-size: 20px; \}'+
+
+            '<style>.custom-navbar .navbar-toggle \{margin-top:16px;\}'+
+            '.card\{border:solid #464545 1px;\}'+
+            'footer a:hover, nav a:hover,.share a:hover \{color:#fff;text-decoration: none;\}'+
+            '.badge \{color: #303030;background-color: #ffffff;\}'+
+                        '#posts \{  {block:IfnotFixedtopnavbar}margin-top:15px;{/block:IfnotFixedtopnavbar}{block:IfFixedtopnavbar}margin-top:70px;{/block:IfFixedtopnavbar} \}'+
+            '</style>');
+            break 
+            
+            }
+
+        </script>    
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> <!-- Font Awesome -->
+
+        <style type="text/css">
+        /* Bootstrap theme */
+
+        .center {
+        	text-align: center;
+        }
+        
+
+        .sidebar-item {
+        	margin-top: 10px;
+        }
+        .tumblr-tags {
+        	margin-top:10px;
+        	margin-bottom:-5px;
+        }
+        .tumblr-tags .fa {
+        	top: 3px;
+        	right: 5px;
+        	position: relative;
+        }
+        .btn-img {
+        	max-height: 17px;
+        }
+        .btn-img, a.sidebar-item .fa {
+        	float:left;
+        	left:0px;
+        	
+        	position: relative;
+        	top: 2px;
+        }
+        .link-post {
+        	margin-bottom: 10px;
+        	padding-right: 30px;
+        	padding-left: 30px;
+        	white-space: normal;
+        }
+        .thumbnail {
+        		margin-bottom: 15px;
+        		
+        }
+        .photoset {
+    		margin-top: 5px;
+    		margin-bottom: 5px;
+    		width: 100%;
+        	height: 100%;	
+        }
+        .photoset .caption {
+        	visibility: hidden;
+        		opacity:0;
+        		background: rgba(0,0,0,0.4);
+        		position: absolute;
+        		right: 20px;
+        		bottom: 20px;
+        		left: 20px;
+        		z-index: 10;
+        		padding-top: 8%;
+        		padding-bottom: 8%;
+        		color: #ffffff;
+        		text-align: center;
+        		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        		transition: visibility 0.2s linear, opacity 0.2s linear;
+        }
+        .photoset:hover .caption {
+        	visibility: visible;
+        		opacity:1;
+        }
+
+        
+        .caption {
+        	margin-top: 1em;
+        }
+        .caption p {
+        	margin: 0 0 1em 0;
+        }
+        .caption blockquote p {
+        	font-size: 1em;
+        }
+        .caption blockquote {
+        	margin: 0 0 1em 0;
+        	padding: 0 0 0 15px;
+        }
+        
+        /* heading size */
+        h3{ font-size: 22px; }
+        h4{ font-size: 20px; }
+        
+        /* Bootstrap theme - end  */
+        
+        
+            
+        /* Avatar_logo  */
+
+        .navbar .brand {
+        max-height: 40px;
+        overflow: visible;
+        padding-top: 0;
+        padding-bottom: 0;
+        }
+
+
+        /* Avatar_logo - end */
+        
+
+        footer  {
+        	padding-top: 40px;
+        	padding-bottom: 30px;
+        	margin-top: 100px;
+        	text-align: center;
+
+        }        
+        
+ 
+        footer a:hover,
+        nav a:hover,
+        .share a:hover { 
+            text-decoration: none;
+        }   
+
+
+
+        footer a,
+        nav a,
+        .share a,
+        .share2 a{
+        /* First we need to help some browsers along for this to work.
+         Just because a vendor prefix is there, doesn't mean it will
+         work in a browser made by that vendor either, it's just for
+         future-proofing purposes I guess. */
+          -o-transition:color 0.2s ease-out, background 0.2s ease-in;
+          -ms-transition:color 0.2s ease-out, background 0.2s ease-in;
+          -moz-transition:color 0.2s ease-out, background 0.2s ease-in;
+          -webkit-transition:color 0.2s ease-out, background 0.2s ease-in;
+          /* ...and now for the proper property */
+          transition:color 0.2s ease-out, background 0.2s ease-in;
+        }
+
+        .share2 a{
+            color:#888;
+            text-decoration: none;
+        }
+
+        #share_in_gp:hover,
+        #share_google:hover{ 
+        color:#dd4b39;
+        text-decoration: none;
+        }
+        #share_in_twitter:hover,
+        #share_twitter:hover{ 
+        color:#55ACEE;
+        text-decoration: none;
+        }
+
+        #share_in_facebook:hover,
+        #share_facebook:hover{ 
+        color:#3b5999;
+        text-decoration: none;
+        }
+        #share_in_other:hover,
+        #share_in_other:hover{ 
+        color:#C556DD;
+        text-decoration: none;
+        }
+        /*badge align */
+        h1>.badge, h2>.badge, h3>.badge {
+            vertical-align:middle;
+            margin-top: -0.5em;
+        }
+            
+        .panel-body {
+            word-wrap: break-word;
+   
+        }
+      
+        /* avatar class in tumblr Notes */       
+        .avatar{
+            margin-right:5px;
+        }
+        
+        /* Hovercard (repiolavago)
+           http://bootsnipp.com/snippets/featured/profile-card */    
+        
+.card{padding-top:0;margin:0 0 20px;background-color:rgba(214,224,226,.2);border-top-width:0;border-bottom-width:1px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.card .card-heading{padding:0 20px;margin:0}.card .card-heading.simple{font-size:20px;font-weight:300;color:#777;border-bottom:1px solid #e5e5e5}.card .card-heading.image img{display:inline-block;width:46px;height:46px;margin-right:15px;vertical-align:top;border:0;-webkit-border-radius:500px;-moz-border-radius:500px;border-radius:500px}.card .card-heading.image .card-heading-header{display:inline-block;vertical-align:top}.card .card-heading.image .card-heading-header h3{margin:0;font-size:14px;line-height:16px;color:#262626}.card .card-heading.image .card-heading-header span{font-size:12px;color:#999}.card .card-body{padding:0 20px;margin-top:20px}.card.hovercard{position:relative;padding-top:0;overflow:hidden;text-align:center;background-color:rgba(214,224,226,.2)}.card.hovercard .cardheader{background:url({HeaderImage}) center center;background-size:cover;height:155px}.card.hovercard .avatar{position:relative;top:-50px;margin-bottom:-50px}.card.hovercard .avatar img{width:100px;height:100px;max-width:100px;max-height:100px;-webkit-border-radius:500px;-moz-border-radius:500px;border-radius:500px;border:5px solid rgba(255,255,255,.5)}.card.hovercard .info{padding:4px 8px 10px}.card.hovercard .info .title{margin-bottom:4px;font-size:24px;line-height:1;color:#262626;vertical-align:middle}.card.hovercard .info .desc{overflow:hidden;font-size:12px;line-height:20px;text-overflow:ellipsis}.card.hovercard .bottom{padding:0 20px;margin-bottom:17px}
+        /* Fin Hovercard */
+        
+
+        /* Small devices
+           'container' sin padding
+           pero 'nav-header' y
+           otros si. un cachito noma´ */
+        @media (max-width: 767px) {
+            .container, .row {
+            padding:0px 15px 0px 10px;
+            }
+            
+            .navbar-header,.nav, .navbar-nav {
+            padding:0px 25px 0px 25px;
+            }
+            /* la navbar con boton a la izquierda */
+        	.custom-navbar .navbar-toggle {
+        	    float: left;
+        	    
+        	}
+        	/* margen izq del titulo */
+            .custom-navbar .navbar-brand {
+            margin-left:-20px;
+            margin-top:0px;
+                
+            }
+
+        }
+        
+        /* expanding input on focus (CSS only) */
+        #myInput {
+          width:120px;
+          -webkit-transition:width 0.3s ease-in-out;
+        }
+        #myInput:focus {
+          width:100%;
+          -webkit-transition:width 0.5s ease-in-out;
+        }
+        
+        /* quote */
+        blockquote {
+            padding: 5px 10px;
+            margin: 0 0 12px;
+            font-size: 16px;
+        }
+        
+        .panel-title-comments {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: inherit;
+        }
+        
+        </style>
+
+        <style type="text/css">{CustomCSS}</style>
+        <!– HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries –>
+        <!–[if lt IE 9]>
+        <script src="http://static.tumblr.com/m2fs62i/xnYnd86bl/html5shiv.min.js"></script>
+        <script src="http://static.tumblr.com/m2fs62i/nvFnd86b7/respond.min.js"></script>
+        <![endif]–>
+        <![endif]-->
+        		
+                    
+
+   
+
+
+
+        {block:IfEtiquetas}
+        
+        <script>
+        
+        var searchTerms ="{text:Etiquetas}";
+        var array = searchTerms.split(",");
+        var etiquetas = '';
+        var etiquetas_in_header = '';
+        for (var i in array){
+            var url_text = array[i].replace(/\[.*\]/g,'');
+            var url_addr = array[i].match(/\[(.*?)\]/); //url_addr[1]
+            etiquetas_in_header +='<li><a href="/tagged/' + url_addr[1] + '">' + url_text + '</a><li>';
+            
+            
+            etiquetas +='<a href="/tagged/' + url_addr[1] + '" class="btn btn-default btn-block sidebar-item">' + url_text + '</a>';
+        }
+        
+        $(document).ready(function(){
+            $('#etiquetas').append(etiquetas);
+            $('#etiquetas_header').append(etiquetas_in_header);							   
+            
+        });    
+        </script>
+        {/block:IfEtiquetas}
+
+
+
+
+
+    </head>
+<body>
+<nav class="navbar navbar-default {block:Ifnotonecolumnpage}hidden-lg hidden-md {/block:Ifnotonecolumnpage} {block:IfFixedtopnavbar}navbar-fixed-top{/block:ifFixedtopnavbar} custom-navbar" role="navigation">
+ <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="border:0px;padding:0px;">
+        <span class="sr-only">Toggle navigation</span>
+            {block:IfIconinNavbar}
+             {block:IfIconinNavbarURL}<img src="{text:Icon in Navbar URL}" width="28" height="28" title="Menu" class="img-rounded"> {/block:IfIconinNavbarURL}
+             {block:IfNotIconinNavbarURL}<img src="{PortraitURL-30}" width="28" height="28" title="Menu" class="img-rounded"> {/block:IfNotIconinNavbarURL}
+            {/block:IfIconinNavbar}
+            {block:IfNotIconinNavbar}<i class="fa fa-th fa-2x" title="Menu"></i>{/block:IfNotIconinNavbar}
+      </button>
+<a class="navbar-brand" href="/" title="{Description}">
+    
+    {block:IfTitleinNavbar}
+    {Title}
+    {/block:IfTitleinNavbar}
+    </a>
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav ">
+    
+            {block:IfEtiquetas}
+            <li class="dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-tags"></i> {lang:Tags}<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" id="etiquetas_header">
+                    <!--  <li class="dropdown-header">Youtube</li> -->
+                </ul>
+            </li>
+            {/block:IfEtiquetas}
+    
+        {block:HasPages}
+    
+    <li class="dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-link"></i> Links<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                {block:Pages}
+                <li><a href="{URL}">{Label}</a></li>
+                {/block:Pages}
+                </ul>
+            </li>
+    	{/block:HasPages}
+    
+        {block:Ifonecolumnpage}
+    
+    <li class="dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-tumblr"></i> <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="http://www.tumblr.com/follow/{PlaintextName}" target="_blank">
+            	    <!-- <i class="fa fa-tumblr-square"></i> -->
+                    {lang:Follow on Tumblr}
+                    </a></li>
+                    <li><a href="/archive">
+            		{lang:Archive}
+            		</a></li>
+            		<li><a href="{RSS}">{lang:RSS}            		    
+            		</a></li>
+            		
+					{block:AskEnabled}
+            		<li><a href="/ask">{AskLabel}
+                    </a></li>
+            		{/block:AskEnabled}
+            		{block:SubmissionsEnabled}
+            		<li>
+            		<a href="/submit">{SubmitLabel}
+                	</a></li>
+                	{/block:SubmissionsEnabled}	
+            		
+            		
+            		
+                </ul>
+            </li>
+            
+  
+	  {block:IfBootstrapthemeselector}
+	  
+	
+        <li class="dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-adjust"></i> <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+				  
+
+                    <li><a href="" id="TemaDefault">Bootstrap Default</a></li>
+                    <li><a href="" id="TemaDarkly">Bootswatch Darkly</a></li>
+                    <li><a href="" id="TemaCyborg">Bootswatch Cyborg</a></li>
+                    <li><a href="" id="TemaPaper">Bootswatch Paper</a></li>
+                    <li><a href="" id="TemaSuperhero">Bootswatch Superhero</a></li>
+                    <li><a href="" id="TemaYeti">Bootswatch Yeti</a></li>
+               
+            	  
+            		
+            		
+            		
+                </ul>
+            </li>
+    
+    
+    {/block:IfBootstrapthemeselector}  
+	</ul>
+	
+      <ul class="nav navbar-nav navbar-right">
+   <div class="col-sm-10 col-md-10">
+        <form action="/search" class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="{lang:search}" name="q" value="{SearchQuery}" required>
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>         
+
+
+		  </ul>
+    	{/block:Ifonecolumnpage}
+    
+
+    <!-- END -->
+      
+
+
+
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+
+
+
+<!-- top page -->
+		
+<div class="container" id="posts" >
+    
+     
+    <div class="row">
+
+    <div class="col-xs-12" id="AlertaDIV"></div><!-- aca aprece el alerta de bootstrap -->
+
+
+    
+</div>
+
+<div class="row">
+				
+				
+				
+		
+{block:IfnotOnecolumnpage}			
+    <div class=" col-md-4 {block:IfMenuonright}col-md-push-8{/block:IfMenuonright} ">
+
+	
+
+		{block:Description}		<!-- blog description -->
+
+            <div class="card hovercard">
+
+                <div class="cardheader">
+
+
+
+
+                {block:IfBootstrapthemeselector}
+                <div class="btn-group pull-left">
+                  <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-adjust"></i> Elige un skin <i class="fa fa-caret-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="" id="TemaDefault">Bootstrap Default</a></li>
+                    <li><a href="" id="TemaDarkly">Bootswatch Darkly</a></li>
+                    <li><a href="" id="TemaCyborg">Bootswatch Cyborg</a></li>
+                    <li><a href="" id="TemaPaper">Bootswatch Paper</a></li>
+                    <li><a href="" id="TemaSuperhero">Bootswatch Superhero</a></li>
+                    <li><a href="" id="TemaYeti">Bootswatch Yeti</a></li>
+                  </ul>
+                </div>
+                {/block:IfBootstrapthemeselector}
+
+
+
+
+
+
+
+                </div>
+                <div class="avatar">
+                    <a href="{BlogURL}"><img alt="" src="{PortraitURL-128}"></a>
+                    
+                </div>
+                <div class="info">
+                    <div class="title share">
+                        <a href="{BlogURL}">{Title}</a>
+                    </div>
+                    <div class="desc share">{Description}</div>
+                    {block:IfCitytextline}
+                    <div class="desc share" style="margin-top:7px;margin-bottom:0px;">
+                    <a href="https://www.google.com.ar/maps/search/{text:City text line}" target="_blank">
+                    <i class="fa fa-map-marker"></i></a>&nbsp;
+                    <B> {text:City text line}</B>
+                    </div>
+                    {/block:IfCitytextline}
+                                
+                <div style="margin:5px;">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    <a href="http://www.tumblr.com/follow/{PlaintextName}" class="btn btn-primary " style="margin-top: 10px;">
+            	    <i class="fa fa-tumblr-square"></i>
+                    {lang:Follow on Tumblr}
+                    </a>
+                    </div>
+                </div>
+                    
+                <div class="row" >
+                    <div class="col-xs-6">
+                    <a href="/archive" class="btn btn-default btn-block sidebar-item">
+            		<i class="fa fa-archive"></i>
+            		{lang:Archive}
+            		</a>
+            		</div>
+            
+            		<div class="col-xs-6">
+            		<a href="{RSS}" class="btn btn-default btn-block  sidebar-item"><i class="fa fa-rss"></i>{lang:RSS}
+            		    
+            		</a>
+                	</div>
+                </div>
+                
+                <div class="row">
+                    {block:AskEnabled}
+            		<div class="col-xs-6">
+            		<a href="/ask" class="btn btn-default btn-block  sidebar-item"><i class="fa fa-question"></i>{AskLabel}
+                    </a>
+                	</div>
+            		{/block:AskEnabled}
+            		{block:SubmissionsEnabled}
+            		<div class="col-xs-6">
+            		<a href="/submit" class="btn btn-default btn-block sidebar-item"><i class="fa fa-upload"></i>{SubmitLabel}
+                	</a>
+                	</div>
+                	{/block:SubmissionsEnabled}	
+                </div>
+
+                <div class="row" >
+                    <div class="col-xs-12 sidebar-item">                
+               
+                            	
+            	    <form action="/search"  role="search">
+            		<div class="input-group" >
+            			<div class="input-group-btn ">
+            				<button class="btn btn-default " type="submit"><i class="fa fa-search fa-"></i></button>
+            			</div>		
+            			<input type="text" name="q" value="{SearchQuery}"  class="form-control " placeholder=" {lang:Search}" required>
+            
+            		</div>
+                	</form>
+ 		    
+                    </div>
+                    
+                </div>
+                
+        </div>
+    </div>
+    
+        
+    </div><!-- end hovercard -->
+
+        <!-- blog description -->
+        {/block:Description}
+						
+
+				
+					
+{block:IfEtiquetas}
+<div class="panel panel-default hidden-xs hidden-sm">
+    <div class="panel-heading"><h4>{lang:Tags}</h4>
+    </div>
+    <div class="panel-body">
+        <div id="etiquetas"></div>
+    </div>
+</div>    
+{/block:IfEtiquetas}
+
+{block:HasPages}
+
+<div class="panel panel-default hidden-xs hidden-sm">
+    <div class="panel-heading"><h4>Links</h4>   
+    </div>
+    <div class="panel-body">
+    {block:Pages}
+    <a href="{URL}" class="btn btn-default btn-block sidebar-item">{Label}</a>
+    {/block:Pages}
+    </div>
+</div>    
+{/block:HasPages}
+
+				
+				
+				
+				
+
+</div> <!-- col-md-4 -->
+
+		
+<div class="col-md-8 {block:IfMenuonright}col-md-pull-4{/block:IfMenuonright}">
+				
+{/block:IfnotOnecolumnpage}				
+
+{block:Ifcolumnpage}
+<div class="col-xs-12">
+{/block:Ifcolumnpage}				
+				
+				
+
+				
+					
+	<!-- posts -->					
+
+
+{block:SearchPage}						
+<div class="panel panel-default">
+    <div class="panel-body">
+    <h3 style="margin-top:0px;"> <i class="fa fa-search"></i> {lang:Search} </h3> 
+    {block:NoSearchResults}	
+        {lang:Sorry no results for SearchQuery}
+    {/block:NoSearchResults}	
+    {lang:Showing SearchResultCount results for SearchQuery 2}
+    </div>
+</div>
+{/block:SearchPage}	
+
+{block:TagPage}
+<div class="panel panel-default">
+    <div class="panel-body">
+    <h3 style="margin-top:0px;"> <i class="fa fa-tags"></i> Tags<br>
+    <small><a href="/tagged/{tag}" class="label label-primary" style="vertical-align:middle;">{tag}</a></small></h3>
+    </div>
+    </div>
+
+{/block:TagPage}
+					
+
+
+
+
+{block:Posts}
+<div class="panel panel-default">
+					
+					
+
+{block:Answer}<!-- block:Answer} -->
+	<div class="panel-body">
+		<div class="well">
+			<div class="media">
+				<img src="{AskerPortraitURL-64}" class="media-object pull-left">
+				<div class="media-body">
+					<h4 class="media-heading">
+						{lang:Asker asked}
+					</h4>
+					{Question}
+				</div>
+			</div>
+		</div>
+		<div class="caption">
+		{Answer}
+		</div>
+<!-- block:Answer} -->{/block:Answer}
+
+{block:Audio}<!-- block:Audio} -->
+	<div class="panel-body">
+		{AudioPlayerBlack}
+		{block:Caption}
+			<div class="caption">{Caption}</div>
+		{/block:Caption}
+<!-- block:Audio} -->{/block:Audio}
+
+{block:Chat}<!-- block:Chat} -->
+	{block:Title}
+		<div class="panel-heading">
+			<h2 class="panel-title"><a href="{Permalink}"><b>{Title}</b></a></h2>
+		</div>
+	{/block:Title}
+	<div class="panel-body">
+		<div class="post chat">
+			<dl class="dl-horizontal">
+				{block:Lines}
+					<dt class="{Alt} user_{UserNumber}">
+						{block:Label}
+							<span>{Label}</span>
+						{/block:Label}
+					</dt>
+					<dd>
+						{Line}
+					</dd>
+				{/block:Lines}
+			</dl>
+		</div>
+<!-- block:Chat} -->{/block:Chat}
+
+{block:Link}<!-- block:Link} -->
+	{block:Title}
+	<div class="panel-heading">
+		<h2 class="panel-title"><a href="{Permalink}"><b>{Title}</b></a></h2>
+	</div>
+	{/block:Title}
+	<div class="panel-body">
+		{block:Thumbnail}<p><a href="{URL}" class="link-post" {Target}><img src="{Thumbnail}" class="img-responsive"></a></p> {/block:Thumbnail}
+		<p><a href="{URL}" class="link-post" {Target}>{Name} &raquo;</a></p>
+
+		{block:Description}
+			<div class="caption">{Description}</div>
+		{/block:Description}
+<!-- block:Link} -->{/block:Link}
+
+{block:Panorama}<!-- block:Panorama} -->
+	{LinkOpenTag}
+		<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+	{LinkCloseTag}
+
+	{block:Caption}
+		<span class="caption">{Caption}</span>
+	{/block:Caption}
+<!-- block:Panorama} -->{/block:Panorama}
+
+{block:Photo}<!-- block:Photo} -->
+	<div class="panel-body">
+		<div class="center">
+			{LinkOpenTag}
+			<a href="{PhotoURL-1280}" target="_blank"><img src="{PhotoURL-500}"  width="{PhotoWidth-1280}"height="{PhotoHeight-1280}"  class="img-thumbnail img-responsive" /></a>{LinkCloseTag}
+	</div>
+		{block:Caption}
+				<span class="caption">
+				{Caption}
+				</span>
+		{/block:Caption}			
+	
+	
+<!-- block:Photo} -->{/block:Photo}
+
+{block:Photoset}<!-- block:Photoset} -->
+	<div class="panel-body">
+<!--
+	{Photoset-500}
+-->
+		<script type="text/javascript">
+			var layout = {JSPhotosetLayout};
+			var photocount = 0;
+			var photoclass = '', photos = [];
+			for(var i=0;i<layout.length;i++) {
+				switch(layout[i]) {
+					case "1":
+						photoclass = 'col-md-12';
+						break;
+					case "2":
+						photoclass = 'col-md-6';
+						break;
+					case "3":
+						photoclass = 'col-md-4';
+						break;
+					case "4":
+						photoclass = 'col-md-3';
+						break;
+				}
+				for(var j=0; j < parseInt(layout[i]); j++) {
+					photos[photocount] = {
+						'class': photoclass,
+						rowsize: parseInt(layout[i])
+					};
+					photocount++;
+				}
+			}
+			photocount = 0;
+			var rowcount = 0;
+		</script>
+
+		{block:Photos}
+			<script>
+				if(rowcount == 0) {
+					document.write('<div class="row">');
+				}
+			</script>
+
+			<div id="photosetphoto" class="col-md-3">
+				<script>
+					var photo = document.getElementById('photosetphoto');
+					photo.className = photos[photocount].class;
+					photo.removeAttribute('id');
+					rowcount++;
+				</script>
+				<div class="center thumbnail photoset">
+							
+				{LinkOpenTag}<a href="{PhotoURL-1280}" target="_blank"><img src="{PhotoURL-500}"  width="{PhotoWidth-1280}"height="{PhotoHeight-1280}"  class="img-responsive" /></a>{LinkCloseTag}
+						
+					{block:Caption}
+								
+						{LinkOpenTag}<a href="{PhotoURL-1280}" target="_blank">	<span class="caption">
+						{Caption}
+						</span></a>{LinkCloseTag}
+								
+					{/block:Caption}
+				</div>
+			</div>
+			<script>
+				if(rowcount == photos[photocount].rowsize) {
+					document.write('</div>');
+					rowcount = 0;
+				}
+				photocount++;                                        
+			</script>
+		{/block:Photos}
+		{block:Caption}
+			<div class="caption">{Caption}</div>
+		{/block:Caption}
+
+
+<!-- block:Photoset} -->{/block:Photoset}
+
+{block:Quote}<!-- block:Quote} -->
+	{block:Title}
+	<div class="panel-heading">
+		<h2 class="panel-title"><a href="{Permalink}"><b>{Title}</b></a></h2>
+	</div>
+	{/block:Title}
+	<div class="panel-body">
+		<blockquote>
+			<p>"{Quote}"</p>
+			{block:Source}
+			<small>
+				<cite>{Source}</cite>
+			</small>
+			{/block:Source}
+		</blockquote>
+<!-- block:Quote} -->{/block:Quote}
+
+{block:Text}<!-- block:Text} -->
+	{block:Title}
+		<div class="panel-heading">
+			<h2 class="panel-title"><a href="{Permalink}"><b>{Title}</b></a></h2>
+		</div>		
+	{/block:Title}
+	<div class="panel-body">
+	{Body}			
+
+{block:PermalinkPage}
+{block:HasTags}
+<!-- block:youtube} -->
+
+    <script>
+    var yt_api_key = 'AIzaSyA-vi4L_J9bzF9G3KAhDGY8Q_tvOq_KRTw';
+    var array_de_tags = [{block:Tags}'{Tag}'.toLowerCase(),{/block:Tags}];
+    var post_title_string = '{block:Title}{Title}{/block:Title}';
+    function buscar_videos(querysearch,limit_search){
+        $.get(
+           "https://www.googleapis.com/youtube/v3/search",{
+               part : 'id,snippet', 
+               q: querysearch,
+               maxResults: limit_search,
+               type: 'video',
+               key: yt_api_key},
+               function(data) {
+                    var results;
+                    var video_url;
+                    var video_thumbnail;
+                    var header_html;
+                    $.each( data.items, function( i, item ) {
+                        //item.snippet.channelTitle;
+                        header_html = '<p><b>Youtube</b></p>';
+                        video_thumbnail = '<img src="'+item.snippet.thumbnails.default.url+'" class="img-thumbnail">';
+                        video_url = 'https://youtube.com/watch?v=' + item.id.videoId;
+                        results = header_html + '<a href="'+ video_url +'" title="' + item.snippet.title + '" target="_blank">'+ video_thumbnail + '</a><br>'+ '<a href="'+ video_url +'" title="' + item.snippet.title + '" target="_blank">'+item.snippet.title + '</a>';
+                        
+
+                       $('#resultados_yt').append(results);
+
+
+                    });
+                }
+            );
+        }
+
+	    if(isAnyValueIn('tvr',array_de_tags) && post_title_string.substring(0,3) == 'TVR') buscar_videos(post_title_string,1);
+	
+        
+        </script>
+<p id="resultados_yt"></p>
+{/block:HasTags}
+{/block:PermalinkPage}
+
+
+<!-- block:Text} -->
+{/block:Text}
+
+{block:Video}<!-- block:Video} -->
+	<div class="panel-body">
+		<div class="center">
+		{Video-500}
+		</div>
+		{block:Caption}
+			<div class="caption">{Caption}</div>
+		{/block:Caption}
+<!-- block:Audio} -->{/block:Video}
+					
+
+						{block:HasTags}<!-- block:HasTags} -->
+						<div class="tumblr-tags">
+							<i class="fa fa-tags"></i>
+							{block:Tags}
+								<a href="{TagURL}" class="label label-primary">{Tag}</a>
+							{/block:Tags}
+						</div>
+						<!-- block:HasTags} -->{/block:HasTags}
+
+											</div>
+						<div class="panel-footer">
+						<!-- share -->
+						 
+					    	<div class="clearfix"></div>
+
+						 
+								<div id="share_div" class="notes pull-right share2" >
+									
+									 {block:Date}
+									 
+									 
+									 <a id="share_in_facebook" href="javascript:fbShare('{Permalink}', '{block:Title}{Title}{/block:Title} ', '{block:PostSummary}{PostSummary}{/block:PostSummary}', '{PortraitURL-128}', 520, 350)">
+									 <i title="Facebook" class="fa fa-facebook-square fa-lg"></i>
+									     
+									 </a>  
+									 <a id="share_in_twitter" href="javascript:twShare('', '{block:Title}{Title} -{/block:Title}', '{Permalink}','{block:IfTwitterUsername}{lang:Via} {text:Twitter Username} {/block:IfTwitterUsername}',  540, 300)" >
+									 <i title="Twitter" class="fa fa-twitter-square fa-lg"></i>
+									 </a>  
+									 <a id="share_in_gp" href="javascript:gpShare('{Permalink}',520,350)">
+									 <i title="Google plus" class="fa fa-google-plus-square fa-lg"></i>
+									 </a>  
+
+                                    <a id="share_in_other" tabindex="0" role="button" data-title="{lang:Short URL}" data-content="{ShortURL}" data-toggle="share_in_other">
+                                    <i title="{lang:Short URL}" class="fa fa-share-alt-square fa-lg"></i>
+                                    </a>									 
+									 {/block:Date}
+								</div>						
+						<!-- share -->
+
+								<div class=" for_permalink">
+									<div class="date">{block:IndexPage}{block:NoteCount}<span class="badge" title="{NoteCountWithLabel}" style="vertical-align:middle;">{NoteCount}</span>{/block:NoteCount}{/block:IndexPage} 
+									
+								        {block:Date}
+                                        <a href="{Permalink}">{TimeAgo}</a>
+                                        {/block:Date}
+										{block:Reblog} | 
+										<a href="{ReblogParentURL}" target="_blank">{lang:Reblogged from ReblogParentName}</a>
+										{block:RebloggedFromReblog}
+										{/block:RebloggedFromReblog}
+										{/block:Reblog}
+
+										
+										{block:NotReblog}
+										{/block:NotReblog}
+									</div>
+								</div>
+							
+									
+							{block:ContentSource}
+							<a href="{SourceURL}" class="source_url">
+								{lang:Source}:
+								{SourceTitle}
+							</a>
+							{/block:ContentSource}
+						</div>
+					</div>
+					
+					{block:PostNotes}
+					<div class="panel panel-default">
+						<div class="panel-heading">
+			    			<h3 class="panel-title-comments">
+		    				{block:PermalinkPage}{block:NoteCount}<span class="badge" title="{NoteCountWithLabel}" style="vertical-align:bottom;">{NoteCount}</span>{/block:NoteCount}{/block:PermalinkPage} <a data-toggle="collapse" href="#collapseNotes" aria-expanded="false" aria-controls="collapseNotes">Notas</a> <i class="fa fa-angle-double-right"></i></i></h3>
+						    
+						</div>
+						<div class="panel-body collapse" id="collapseNotes">
+							{PostNotes}
+						</div>
+					</div>
+					{/block:PostNotes}
+
+				{/block:Posts}
+		
+                {block:PermalinkPage}
+                {block:Posts}
+                {block:Date}					
+                {block:IfDisqusUsername}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    <h3 class="panel-title panel-title-comments">
+                    {block:IfDisquscommentscounter}<span class="disqus-comment-count badge" data-disqus-url="{Permalink}" style="vertical-align:bottom;"></span>{/block:IfDisquscommentscounter}
+                    <a data-toggle="collapse" href="#collapseDisqus" aria-expanded="false" aria-controls="collapseDisqus">{lang:View comments}</a>
+<i class="fa fa-angle-double-right"></i></h3>
+                
+                </div>
+                    <div class="panel-body collapse" id="collapseDisqus">
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+                {/block:IfDisqusUsername}				
+                {/block:Date}					
+                {/block:Posts}
+                {/block:PermalinkPage}
+
+
+
+                 {block:IfRelatedPosts}{block:RelatedPosts}
+                
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Posts relacionados
+                    </div>
+                    <div class="panel-body">
+                          {block:Posts}
+                    
+                      <a href="{Permalink}">{Title}</a>
+                      <div>{PostSummary}</div>
+                    
+
+
+                {/block:Posts}
+                    </div>
+                </div>
+                
+                
+                
+          {/block:RelatedPosts}{/block:IfRelatedPosts}
+           
+                					
+
+				{block:IfNotEnableJumpPagination}
+					{block:Pagination}
+					<ul class="pager">
+						{block:PreviousPage}
+							<li class="previous"><a href="{PreviousPage}">&larr; {lang:Later posts}</a></li>
+						{/block:PreviousPage}
+
+						{block:NextPage}
+							<li class="next"><a href="{NextPage}">{lang:Earlier posts} &rarr;</a></li>
+						{/block:NextPage}
+
+						</ul>
+					{/block:Pagination}
+				{/block:IfNotEnableJumpPagination}
+
+				{block:IfEnableJumpPagination}
+				<div class="row center">
+					{block:Pagination}
+					<ul class="pagination">
+						{block:PreviousPage}
+							<li><a href="{PreviousPage}">&laquo;</a></li>
+						{/block:PreviousPage}
+
+						{block:JumpPagination length="5"}
+							{block:CurrentPage}
+								<li class="active"><a href="#">{PageNumber}</a></li>
+							{/block:CurrentPage}
+
+							{block:JumpPage}
+								<li><a href="{URL}">{PageNumber}</a></li>
+							{/block:JumpPage}
+						{/block:JumpPagination}
+
+						{block:NextPage}
+							<li><a href="{NextPage}">&raquo;</a></li>
+						{/block:NextPage}
+					</ul>
+					{/block:Pagination}
+				</div>
+				{/block:IfEnableJumpPagination}
+
+
+
+
+
+
+	
+
+   
+
+			</div><!-- col-md-8 -->
+			
+		</div><!-- row -->
+		
+	</div><!-- container -->
+
+
+    <footer>
+    <hr>
+    
+    <div class=" clearfix row-fluid" >
+
+                 <div title="Una monedita para el iPhone, señora." class="pull-left" style="margin-top:-55px;margin-left:15px;">
+        
+        <i class="fa fa-btc fa-1x"></i>: <small class="text-primary">3MtprgLqjV8qqmwihaRgiBHy6TkNfgNuHo </small>
+        </div>
+    </div>
+    
+    <!-- common footer
+    
+    <div class="container row-fluid" id="footer">
+        <div class="row">
+          <div class="col-md-6 text-left">
+            <h4><i class="fa fa-copyright"></i> Créditos</h4>
+            <small>Basado en <a href="http://tumbootstrap.tumblr.com/" target="_blank">Tumblr Bootstrap Theme</a><br>
+            Temas de <a href="http://bootswatch.com/" target="_blank">Bootswatch</a><br>
+            Iconos de <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a><br>{lang:Powered by Tumblr 2}</small>
+          </div>
+    
+          
+          
+        </div>
+      </div>
+    
+    -->
+    
+    
+    <div class="container row-fluid" id="footer">
+    <div class="col-sm-6 col-md-4">
+    <h4><i class="fa fa-globe"></i> Social</h4>
+    <small><a href="https://twitter.com/sirjohnpenguin" target="_blank">Twitter</a></small><br>
+    <small><a href="http://ask.fm/sirjohndigweed" target="_blank">Ask.fm</a></small><br>
+    <small><a href="http://www.taringa.net/sirjohndigweed" target="_blank">Taringa!</a></small><br>
+    <small><a href="https://facebook.com/sirjohndigweed" target="_blank">Facebook</a></small><br>
+    <small><a href="https://github.com/sirjohnpenguin/" target="_blank">GitHub</a></small><br>
+    <small><a href="https://telegram.me/canaldesirjohn" target="_blank">Telegram</a></small><br>
+
+    
+    
+    </div>
+    <div class="col-sm-6 col-md-4">
+    <h4><i class="fa fa-film"></i> Youtube</h4><small>
+    <a href="https://youtube.com/user/sirjohnpenguin" target="_blank">sirjohnpenguin I</a><br>
+    <a href="https://youtube.com/user/sirjohnpenguin2" target="_blank">sirjohnpenguin II</a><br>
+    <a href="https://youtube.com//sirjohnpenguin3" target="_blank">sirjohnpenguin III</a><br>
+    <a href="https://www.youtube.com/channel/UCI_RDntRmNUCRM987Bon8Jw" target="_blank">sirjohnpenguin IV</a><br>    
+    <h4><i class="fa fa-film"></i> Dailymotion</h4>
+    
+    <a href="https://dailymotion.com/sirjohndigweed" target="_blank">sirjohndigweed</a><br>
+    <a href="https://dailymotion.com/sirjohnp" target="_blank">sirjohnp</a></small><br>
+    </div>
+    <div class="col-sm-6 col-md-4">
+    
+    <h4><i class="fa fa-copyright"></i> Créditos</h4>
+    
+    <small>Basado en <a href="http://tumbootstrap.tumblr.com/" target="_blank">Tumblr Bootstrap Theme</a><br>
+    Temas de <a href="http://bootswatch.com/" target="_blank">Bootswatch</a><br>
+    Iconos de <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a><br>{lang:Powered by Tumblr 2}<br>{block:IfCopyleftFooter}<b><a href="{BlogURL}">{BlogTitle}</a> <i class="fa fa-copyright fa-flip-horizontal"></i> {CopyrightYears}</b>{/block:IfCopyleftFooter}	</small>
+    
+    </div>
+    </div>  
+      
+      
+    </footer>
+    		
+    
+    
+    <script src="http://static.tumblr.com/bffkbni/1J9nnw5ro/bootstrap.3.3.4.min.js"></script> 
+    
+    {block:PermalinkPage}
+    {block:Posts}
+    {block:Date}					
+    {block:IfDisqusUsername}
+    <script>
+    //http://www.joelsays.com/load-disqus-comments-only-when-needed/
+    var disqus_shortname = '{text:Disqus Username}'; 
+    function load_disqus() {
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    }
+    
+    /* Collapse Disqus */
+    $('#collapseDisqus').on('show.bs.collapse', function () {
+       $(this).parent("div").find(".fa-angle-double-right").removeClass("fa-angle-double-right").addClass("fa-angle-double-down");
+       load_disqus(); 
+    })
+       $('#collapseDisqus').on('hide.bs.collapse', function () {
+       $(this).parent("div").find(".fa-angle-double-down").removeClass("fa-angle-double-down").addClass("fa-angle-double-right");
+       $('#disqus_thread').empty(); //vacio el div de disqus
+    })
+    
+    {block:IfDisquscommentscounter}
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    {/block:IfDisquscommentscounter}
+    </script>
+    
+    {/block:IfDisqusUsername}
+    {/block:Date}					
+    {/block:Posts}
+    {/block:PermalinkPage}
+    <script>
+    
+    /* Collapse Notes */
+    $('#collapseNotes').on('shown.bs.collapse', function () {
+       $(this).parent("div").find(".fa-angle-double-right").removeClass("fa-angle-double-right").addClass("fa-angle-double-down");
+    })
+       $('#collapseNotes').on('hidden.bs.collapse', function () {
+       $(this).parent("div").find(".fa-angle-double-down").removeClass("fa-angle-double-down").addClass("fa-angle-double-right");
+    })
+
+    /* Start popover share_in other*/
+    $('[data-toggle="share_in_other"]').popover({
+        html: true, 
+        placement: 'left'
+
+    });
+
+    /* click outside the popover to dismiss */
+    $('body').on('click', function (e) {
+        $('[data-toggle="share_in_other"]').each(function () {
+            //the 'is' for buttons that trigger popups
+            //the 'has' for icons within a button that triggers a popup
+
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+
+        });
+    });
+   /* End popover share_in other*/       
+    
+    
+    /* tumblr text post, add 'img-responsive' class */
+    $(document).ready(function(){
+        //$('img','.tmblr-full').addClass("img-responsive");
+        $('img','.panel-body').addClass("img-responsive");
+        $('img','.notes').removeClass("img-responsive");
+    });
+    
+    
+    {block:IfBootstrapthemeselector}
+    
+    $("#TemaDefault").on( "click", function() {
+        setCookie("AspectoTema", "Default", 365);
+        location.reload();
+    });
+    $("#TemaCyborg").on( "click", function() {
+        setCookie("AspectoTema", "Cyborg", 365);
+        location.reload();
+        
+    });
+    $("#TemaPaper").on( "click", function() {
+        setCookie("AspectoTema", "Paper", 365);
+        location.reload();
+        
+    });
+    
+    $("#TemaSuperhero").on( "click", function() {
+        setCookie("AspectoTema", "Superhero", 365);
+        location.reload();
+        
+    });
+    $("#TemaYeti").on( "click", function() {
+        setCookie("AspectoTema", "Yeti", 365);
+        location.reload();
+        
+    });
+    $("#TemaDarkly").on( "click", function() {
+        setCookie("AspectoTema", "Darkly", 365);
+        location.reload();
+        
+    });
+    
+    
+    
+    /*  le agrego la clase 'active' al
+        elemento <li> que está en el
+        selector de temas re loco */
+    $(document).ready(function(){
+       
+        switch (cookie_aspecto) { 
+            case 'Default': 
+            /* or...https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css*/
+            $('#TemaDefault').parent("li").addClass("active");
+            break 
+            
+            case 'Cyborg': 
+            $('#TemaCyborg').parent("li").addClass("active");
+            
+            break
+            
+            case 'Paper': 
+            $('#TemaPaper').parent("li").addClass("active");
+            
+            break 
+                        
+            case 'Superhero': 
+            $('#TemaSuperhero').parent("li").addClass("active");
+            
+            break 
+                                    
+            case 'Yeti': 
+            $('#TemaYeti').parent("li").addClass("active");
+            
+            break 
+                                                
+            case 'Darkly': 
+            $('#TemaDarkly').parent("li").addClass("active");
+           
+            break 
+            
+        }       
+    });
+    
+    {/block:IfBootstrapthemeselector}
+    
+    
+    {block:IfAlertenabled}
+    
+    /* Leo la cookie, a ver que onda....*/
+    var cookie_alerta= getCookie('{text:Alert cookie name}');
+    
+    /*  Si la cookie no está seteada, muestro
+        sino, te la mando a guardar...a la alerta*/
+    
+    if (!cookie_alerta){
+    
+        $( "#AlertaDIV" ).append( '<div id="alerta_videos" class="alert alert-danger alert-dismissible fade in" role="alert">  '+
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+        '<i class="fa fa-exclamation-triangle"></i>'+
+        '<strong> {text:Alert title}</strong> <br>'+
+        '{text:Alert body}'+
+        '</div>' );
+    
+    }
+        
+    
+    
+    /*  Guardo la cookie, le doy los días que dijo
+        el dueño del bloggg */
+    $('#alerta_videos').on('closed.bs.alert', function () {
+        setCookie("{text:Alert cookie name}", "oculto", {text:Alert cookie days}); /* cinco dias */
+    })
+    
+    {/block:IfAlertenabled}
+    
+    </script>
+    
+    {block:IfGoogleAnalyticsWebPropertyID}
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', '{text:Google Analytics Web Property ID}', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    
+    {/block:IfGoogleAnalyticsWebPropertyID}
+
+	</body>
+</html>
